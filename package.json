@@ -23,5 +23,9 @@
     "is-windows": "^1.0.1",
     "memory-streams": "^0.1.2",
     "mocha": "^4.0.1"
+  },
+  "dependencies": {
+    "del": "^3.0.0",
+    "make-dir": "^1.1.0"
   }
 }
