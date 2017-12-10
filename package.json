@@ -7,6 +7,9 @@
   "author": "Laju Morrison <morrelinko@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "tests": "mocha tests"
+  },
   "engines": {
     "node": "^8.0.0"
   },
