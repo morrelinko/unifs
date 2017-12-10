@@ -1,0 +1,24 @@
+{
+  "name": "unifs",
+  "version": "0.0.1",
+  "description": "Universal Filesystem",
+  "main": "lib/index.js",
+  "repository": "git@github.com:morrelinko/unifs.git",
+  "author": "Laju Morrison <morrelinko@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^4.13.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-html": "^4.0.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "is-windows": "^1.0.1",
+    "memory-streams": "^0.1.2",
+    "mocha": "^4.0.1"
+  }
+}
