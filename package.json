@@ -1,6 +1,6 @@
 {
   "name": "unifs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Universal Filesystem",
   "main": "lib/index.js",
   "repository": "git@github.com:morrelinko/unifs.git",
