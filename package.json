@@ -11,7 +11,7 @@
     "tests": "mocha tests"
   },
   "engines": {
-    "node": "^8.0.0"
+    "node": ">=8.0.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
