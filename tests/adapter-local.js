@@ -24,16 +24,16 @@ describe('LocalAdapter', function () {
   })
 
   after(function () {
-    // del([`${root}/**/*`, `!${root}`])
+    del([`${root}/**/*`, `!${root}`])
   })
 
-  it.only('applies prefix to paths', function () {
+  it('applies prefix to paths', function () {
     adapter.setPrefix('uploads')
     assert.equal(adapter.applyPrefix('file.txt'), 'uploads/file.txt')
     adapter.setPrefix(root)
   })
 
-  it.only('doesn\'t apply prefix more than once', function () {
+  it('doesn\'t apply prefix more than once', function () {
     adapter.setPrefix('uploads')
 
     let prefixedPath
@@ -73,7 +73,6 @@ describe('LocalAdapter', function () {
 
   it.only('reads file', async function () {
     await adapter.write('read_file.txt', 'content')
-
     let content = await adapter.read('read_file.txt', 'content')
 
     assert.equal(content, 'content')
