@@ -24,7 +24,7 @@ describe('LocalAdapter', function () {
   })
 
   after(function () {
-    del([`${root}/**/*`, `!${root}`])
+    // del([`${root}/**/*`, `!${root}`])
   })
 
   it('applies prefix to paths', function () {
@@ -71,7 +71,7 @@ describe('LocalAdapter', function () {
     )
   })
 
-  it.only('reads file', async function () {
+  it('reads file', async function () {
     await adapter.write('read_file.txt', 'content')
     let content = await adapter.read('read_file.txt', 'content')
 
@@ -79,7 +79,7 @@ describe('LocalAdapter', function () {
   })
 
   it('should read file using streams', async function () {
-    await adapter.write('read_file_stream.txt', 'content')
+    await adapter.write('read_file_stream.txt', 'some \ncontent')
 
     return new Promise(async function (resolve, reject) {
       let content = ''
@@ -88,7 +88,7 @@ describe('LocalAdapter', function () {
       stream.on('data', chunk => (content += chunk))
       stream.on('error', err => reject(err))
       stream.on('end', () => {
-        assert.equal(content, 'content')
+        assert.equal(content, 'some \ncontent')
         resolve(content)
       })
     })

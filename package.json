@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "del": "^3.0.0",
+    "end-of-stream": "^1.4.1",
     "make-dir": "^1.1.0",
     "slash": "^2.0.0"
   }
