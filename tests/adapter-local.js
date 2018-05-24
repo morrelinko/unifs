@@ -5,15 +5,11 @@ const util = require('util')
 const path = require('path')
 const del = require('del')
 const mkdir = require('make-dir')
-const chai = require('chai')
+const { assert } = require('chai')
 const streams = require('memory-streams')
 const isWindows = require('is-windows')
 const LocalAdapter = require('../lib/adapters/local')
 const testfs = require('./toolbox/fs')
-
-const assert = chai.assert
-
-chai.use(require('chai-as-promised'))
 
 describe('LocalAdapter', function () {
   let root
@@ -28,13 +24,24 @@ describe('LocalAdapter', function () {
   })
 
   after(function () {
-    del([`${root}/**/*`, `!${root}`])
+    // del([`${root}/**/*`, `!${root}`])
   })
 
-  it('should apply prefix', function () {
+  it.only('applies prefix to paths', function () {
     adapter.setPrefix('uploads')
-    assert.equal(`uploads${path.sep}file.txt`, adapter.applyPrefix('file.txt'))
+    assert.equal(adapter.applyPrefix('file.txt'), 'uploads/file.txt')
     adapter.setPrefix(root)
+  })
+
+  it.only('doesn\'t apply prefix more than once', function () {
+    adapter.setPrefix('uploads')
+
+    let prefixedPath
+    prefixedPath = adapter.applyPrefix('file.txt')
+    prefixedPath = adapter.applyPrefix(prefixedPath)
+    prefixedPath = adapter.applyPrefix(prefixedPath)
+
+    assert.equal(prefixedPath, 'uploads/file.txt')
   })
 
   it('should create directory', async function () {
@@ -64,7 +71,15 @@ describe('LocalAdapter', function () {
     )
   })
 
-  it('should read file using stream', async function () {
+  it.only('reads file', async function () {
+    await adapter.write('read_file.txt', 'content')
+
+    let content = await adapter.read('read_file.txt', 'content')
+
+    assert.equal(content, 'content')
+  })
+
+  it('should read file using streams', async function () {
     await adapter.write('read_file_stream.txt', 'content')
 
     return new Promise(async function (resolve, reject) {
