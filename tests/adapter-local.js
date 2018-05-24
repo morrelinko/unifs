@@ -33,7 +33,7 @@ describe('LocalAdapter', function () {
 
   it('should apply prefix', function () {
     adapter.setPrefix('uploads')
-    assert.equal('uploads/file.txt', adapter.applyPrefix('file.txt'))
+    assert.equal(`uploads${path.sep}file.txt`, adapter.applyPrefix('file.txt'))
     adapter.setPrefix(root)
   })
 
