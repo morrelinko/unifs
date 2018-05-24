@@ -17,15 +17,15 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "eslint": "^4.13.0",
-    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard": "^11.0.0",
     "eslint-plugin-html": "^4.0.1",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "is-windows": "^1.0.1",
     "memory-streams": "^0.1.2",
-    "mocha": "^4.0.1"
+    "mocha": "^5.2.0"
   },
   "dependencies": {
     "del": "^3.0.0",
