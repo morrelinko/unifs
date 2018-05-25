@@ -36,3 +36,26 @@ let data = await fs.read('file.txt')
 
 - Local 
 - Memory
+
+#### UniFs Storage Manager
+
+storage.js
+
+```js
+const unifs = require('unifs')
+
+let storage = (module.exports = new unifs.Manager())
+
+// Register filesystems
+storage.fs('local', unifs.adapters.Local(...))
+storage.fs('static', unifs.adapters.AwsS3(...))
+```
+
+somewhere.js
+
+```js
+const storage = require('../storage')
+
+storage.disk('static').read('someimage.png')
+storage.disk('local').size('somfile.txt')
+```
